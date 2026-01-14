@@ -1,4 +1,0 @@
-# Netlify redirects for SPA (Single Page Application)
-# This ensures all routes are handled by index.html
-
-/*    /index.html   200
