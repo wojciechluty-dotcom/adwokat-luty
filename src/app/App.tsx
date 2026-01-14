@@ -7,11 +7,11 @@ import { RodoInfo } from './components/RodoInfo';
 import { Terms } from './components/Terms';
 import { useState } from 'react';
 
-// Professional lawyer portrait images from Unsplash
-const lawyerPortrait1 = "https://images.unsplash.com/photo-1579540830482-659e7518c895?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYWxlJTIwbGF3eWVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY4MzEzNzU4fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const lawyerPortrait2 = "https://images.unsplash.com/photo-1758518731462-d091b0b4ed0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXd5ZXIlMjBvZmZpY2UlMjBkZXNrfGVufDF8fHx8MTc2ODI1MTQwM3ww&ixlib=rb-4.1.0&q=80&w=1080";
-const lawyerPortrait3 = "https://images.unsplash.com/photo-1725595041286-003c2da6cb8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdHRvcm5leSUyMGJ1c2luZXNzJTIwc3VpdHxlbnwxfHx8fDE3NjgzMTM3NTh8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const logoImage = "https://images.unsplash.com/photo-1756840009383-158d3e53d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXclMjBmaXJtJTIwbG9nb3xlbnwxfHx8fDE3NjgzMTM3NjF8MA&ixlib=rb-4.1.0&q=80&w=1080";
+// Zdjęcia z folderu /public/images/
+const lawyerPortrait1 = "/images/wojciech-luty-portret.jpg";
+const lawyerPortrait2 = "/images/wojciech-luty-biuro.jpg";
+const lawyerPortrait3 = "/images/wojciech-luty-praca.jpg";
+const logoImage = "/images/logo.png";
 
 export default function App() {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
@@ -666,3 +666,4 @@ export default function App() {
     </div>
   );
 }
+```
