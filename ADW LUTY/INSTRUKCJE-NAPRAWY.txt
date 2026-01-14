@@ -1,0 +1,26 @@
+INSTRUKCJE NAPRAWY PROJEKTU
+============================
+
+OPCJA 1 - Czyszczenie aktualnego projektu:
+-------------------------------------------
+
+cd ~/Downloads/ADW LUTY
+rm -rf node_modules dist .vite
+npm cache clean --force
+npm install
+npm run build
+
+
+OPCJA 2 - Kopia do nowego folderu:
+-----------------------------------
+
+cd ~/Downloads
+cp -r "ADW LUTY" "ADW-LUTY-NEW"
+cd "ADW-LUTY-NEW"
+rm -rf node_modules dist
+npm install
+npm run build
+
+
+UWAGA: Skopiuj komendy z tego pliku w swoim edytorze tekstowym!
+Plik znajduje się w: ~/Downloads/ADW LUTY/INSTRUKCJE-NAPRAWY.txt
