@@ -1,0 +1,52 @@
+ROZWIĄZANIE PROBLEMU Z IMPORTEM "figma:asset"
+===============================================
+
+Problem: Vite próbuje zbudować import który nie istnieje w kodzie źródłowym.
+Przyczyna: Ukryty cache Vite lub stare pliki kompilacji.
+
+ROZWIĄZANIE 1 - Czyszczenie cache Vite (NAJPROST SZE):
+-------------------------------------------------------
+
+Otwórz Terminal w folderze projektu i wykonaj:
+
+rm -rf node_modules/.vite
+npm run build
+
+
+ROZWIĄZANIE 2 - Pełne czyszczenie projektu:
+--------------------------------------------
+
+cd ~/Downloads/ADW\ LUTY
+rm -rf node_modules
+rm -rf dist  
+rm -rf node_modules/.vite
+rm -rf .vite
+npm cache clean --force
+npm install
+npm run build
+
+
+ROZWIĄZANIE 3 - Jeśli powyższe nie pomogą:
+-------------------------------------------
+
+Utwórz nowy folder i skopiuj tam TYLKO kody źródłowe (bez node_modules):
+
+cd ~/Downloads
+mkdir ADW-LUTY-CLEAN
+cd "ADW LUTY"
+cp -r src ../ADW-LUTY-CLEAN/
+cp -r public ../ADW-LUTY-CLEAN/
+cp package.json ../ADW-LUTY-CLEAN/
+cp vite.config.ts ../ADW-LUTY-CLEAN/
+cp postcss.config.mjs ../ADW-LUTY-CLEAN/
+cp netlify.toml ../ADW-LUTY-CLEAN/
+cp index.html ../ADW-LUTY-CLEAN/ 
+cd ../ADW-LUTY-CLEAN
+npm install
+npm run build
+
+
+WAŻNE:
+------
+Import "figma:asset" NIE ISTNIEJE w żadnym pliku źródłowym!
+To definitywnie problem cache kompilacji.

@@ -1,0 +1,22 @@
+# robots.txt dla adwokat-luty.netlify.app
+
+# Pozwól wszystkim robotom indeksować całą stronę
+User-agent: *
+Allow: /
+
+# Zablokuj dostęp do plików systemowych (opcjonalnie)
+Disallow: /src/
+Disallow: /_redirects
+Disallow: /netlify.toml
+
+# Priorytetowe strony dla crawlerów
+Allow: /index.html
+Allow: /#about
+Allow: /#services
+Allow: /#contact
+
+# Crawl-delay (opcjonalnie, dla grzecznych botów)
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://adwokat-luty.netlify.app/sitemap.xml
