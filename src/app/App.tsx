@@ -184,8 +184,8 @@ export default function App() {
               <div>
                 <h3 className="text-2xl text-slate-800 mb-4">Wojciech Luty</h3>
                 <p className="text-gray-600 mb-4">
-                  Jestem adwokatem z ponad 10-letnim doświadczeniem w prawie rodzinnym. 
-                  Jestem wspólnikiem i założycielem kancelarii Steidler Luty Adamski Bućko - 
+                  Jestem adwokatem z ponad 13-letnim doświadczeniem w prawie rodzinnym. 
+                  Po aplikacji adwokackiej założyłem indywidualną kancelarię adwokacką. W 2017 roku założyłem wraz ze wspólnikami kancelarię Steidler, Luty, Adamski, Bućko - 
                   Adwokaci i Radcowie Prawni w Krakowie, gdzie specjalizuję się w sprawach rozwodowych, 
                   alimentacyjnych i dotyczących opieki nad dziećmi.
                 </p>
@@ -604,7 +604,7 @@ export default function App() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>Wojciech.luty@wsla.pl</span>
+                  <span>wojciech.luty@wsla.pl</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
