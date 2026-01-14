@@ -20,13 +20,40 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real application, this would send data to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setError(false);
+
+    try {
+      // Wysyłanie przez Netlify Forms
+      const form = e.currentTarget;
+      const formDataToSend = new FormData(form);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          loanType: '',
+          message: '',
+        });
+        setTimeout(() => setSubmitted(false), 8000);
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError(true);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
@@ -55,13 +82,33 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form 
+          onSubmit={handleSubmit} 
+          className="space-y-6"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          {/* Ukryte pola wymagane przez Netlify Forms */}
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
+
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+              <p className="text-red-700">
+                Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się telefonicznie.
+              </p>
+            </div>
+          )}
+
           <div>
             <Label htmlFor="name" className="text-gray-700 mb-2 block">
               Imię i Nazwisko *
             </Label>
             <Input
               id="name"
+              name="name"
               type="text"
               required
               value={formData.name}
@@ -78,6 +125,7 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
               </Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 required
                 value={formData.email}
@@ -93,6 +141,7 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
               </Label>
               <Input
                 id="phone"
+                name="phone"
                 type="tel"
                 required
                 value={formData.phone}
@@ -107,7 +156,12 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
             <Label htmlFor="loanType" className="text-gray-700 mb-2 block">
               Rodzaj sprawy *
             </Label>
-            <Select value={formData.loanType} onValueChange={(value) => handleChange('loanType', value)}>
+            <Select 
+              name="loanType" 
+              value={formData.loanType} 
+              onValueChange={(value) => handleChange('loanType', value)} 
+              required
+            >
               <SelectTrigger className="h-12 text-base">
                 <SelectValue placeholder="Wybierz rodzaj sprawy" />
               </SelectTrigger>
@@ -121,6 +175,8 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
                 <SelectItem value="other">Inna sprawa rodzinna</SelectItem>
               </SelectContent>
             </Select>
+            {/* Ukryte pole dla Netlify - Select nie jest natywnym HTML select */}
+            <input type="hidden" name="loanType" value={formData.loanType} />
           </div>
 
           <div>
@@ -129,6 +185,7 @@ export function ContactForm({ onOpenPrivacy, onOpenRodo }: ContactFormProps) {
             </Label>
             <Textarea
               id="message"
+              name="message"
               value={formData.message}
               onChange={(e) => handleChange('message', e.target.value)}
               className="min-h-32 text-base"
