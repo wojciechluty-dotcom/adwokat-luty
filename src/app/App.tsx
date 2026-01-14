@@ -8,8 +8,8 @@ import { Terms } from './components/Terms';
 import { useState } from 'react';
 
 // Zdjęcia z folderu /public/images/
-const lawyerPortrait1 = "/images/wojciech-luty-portret.jpg";
-const lawyerPortrait2 = "/images/wojciech-luty-biuro.jpg";
+const lawyerPortrait1 = "/images/wojciech-luty-biuro.jpg";
+const lawyerPortrait2 = "/images/wojciech-luty-portret.jpg";
 const lawyerPortrait3 = "/images/wojciech-luty-praca.jpg";
 const logoImage = "/images/logo.png";
 
