@@ -1,4 +1,4 @@
-# robots.txt dla adwokat-luty.netlify.app
+# robots.txt dla adwokat-rozwody-krakow.pl
 
 # Pozwól wszystkim robotom indeksować całą stronę
 User-agent: *
@@ -19,4 +19,5 @@ Allow: /#contact
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://adwokat-luty.netlify.app/sitemap.xml
+Sitemap: https://adwokat-rozwody-krakow.pl/sitemap.xml
+Sitemap: https://www.adwokat-rozwody-krakow.pl/sitemap.xml
