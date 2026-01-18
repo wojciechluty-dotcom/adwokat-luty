@@ -1,8 +1,42 @@
 [build]
+  # Folder bazowy (pusty = główny katalog repo)
+  base = ""
   # Komenda do zbudowania projektu
   command = "npm run build"
   # Folder, który zostanie opublikowany
   publish = "dist"
+
+# Wymuszenie HTTPS - przekierowanie HTTP → HTTPS
+[[redirects]]
+  from = "http://prawnik-skd.pl/*"
+  to = "https://prawnik-skd.pl/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.prawnik-skd.pl/*"
+  to = "https://prawnik-skd.pl/:splat"
+  status = 301
+  force = true
+
+# Wyjątki dla plików SEO - NIE przekierowuj ich na index.html
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/googlef0424d86376f15ea.html"
+  to = "/googlef0424d86376f15ea.html"
+  status = 200
+  force = true
 
 [[redirects]]
   # Przekierowanie wszystkich ścieżek na index.html (dla React Router)
